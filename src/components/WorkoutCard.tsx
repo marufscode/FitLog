@@ -8,52 +8,120 @@ import type { Workout } from "@/types/workout";
 export default function WorkoutCard({ workout }: { workout: Workout }) {
   const img = workout.image || workout.thumbnail;
 
+  // Category / equipment ছোট subtitle হিসেবে দেখানো হবে
+  const subtitle =
+    workout.equipment || workout.category || "Workout";
+
   return (
     <Link
       href={`/workout/${workout.id}`}
-      className="group flex flex-col overflow-hidden rounded-card border border-border-soft bg-surface transition-colors hover:border-accent/60"
+      className="
+        group flex h-full flex-col overflow-hidden
+        rounded-xl
+        border border-zinc-800
+        bg-[#121418]
+        transition-all duration-200
+        hover:border-zinc-700
+        hover:bg-[#15181d]
+      "
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-raised">
+      {/* ================= IMAGE ================= */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">
         {img ? (
           <Image
             src={img}
             alt={workout.name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="
+              object-cover
+              transition-transform duration-300
+              group-hover:scale-105
+            "
+            sizes="
+              (max-width: 640px) 100vw,
+              (max-width: 1024px) 50vw,
+              33vw
+            "
             unoptimized
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-ink-faint">
+          <div className="flex h-full w-full items-center justify-center text-xs text-zinc-500">
             No image
           </div>
         )}
-        {workout.category && (
-          <span className="absolute left-3 top-3 rounded-pill bg-black/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent">
-            {workout.category}
-          </span>
-        )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="font-display text-lg font-semibold leading-tight text-white">
-          {workout.name}
-        </h3>
-        <p className="text-xs text-ink-muted">{workout.equipment}</p>
+      {/* ================= CONTENT ================= */}
+      <div className="flex flex-1 flex-col px-2.5 py-2">
+        
+        {/* TITLE */}
+        <div className="min-w-0">
+          <h3
+            className="
+              truncate
+              font-display
+              text-[11px]
+              font-extrabold
+              uppercase
+              leading-[1.1]
+              tracking-wide
+              text-white
+            "
+          >
+            {workout.name}
+          </h3>
 
-        <div className="mt-auto flex items-center gap-4 pt-3 text-xs text-ink-soft">
-          <span className="flex items-center gap-1">
-            <Clock size={14} className="text-ink-faint" />
-            {workout.duration} min
-          </span>
-          <span className="flex items-center gap-1">
-            <Flame size={14} className="text-ink-faint" />
-            {workout.calories} cal
-          </span>
-          <span className="flex items-center gap-1">
-            <Star size={14} className="fill-accent text-accent" />
-            {workout.rating}
-          </span>
+          {/* CATEGORY / EQUIPMENT */}
+          <p className="mt-0.5 truncate text-[8px] font-medium text-zinc-500">
+            {subtitle}
+          </p>
+        </div>
+
+        {/* ================= META ================= */}
+        <div
+          className="
+            mt-auto
+            flex
+            items-center
+            gap-2
+            pt-2
+            text-[8px]
+            font-semibold
+            text-zinc-400
+          "
+        >
+          {workout.duration !== undefined && (
+            <span className="flex items-center gap-0.5 whitespace-nowrap">
+              <Clock
+                size={9}
+                strokeWidth={2.5}
+                className="text-[#CCFF00]"
+              />
+              {workout.duration} min
+            </span>
+          )}
+
+          {workout.calories !== undefined && (
+            <span className="flex items-center gap-0.5 whitespace-nowrap">
+              <Flame
+                size={9}
+                strokeWidth={2.5}
+                className="text-[#CCFF00]"
+              />
+              {workout.calories} kcal
+            </span>
+          )}
+
+          {workout.rating !== undefined && (
+            <span className="flex items-center gap-0.5 whitespace-nowrap">
+              <Star
+                size={9}
+                strokeWidth={2.5}
+                className="text-[#CCFF00]"
+              />
+              {workout.rating}
+            </span>
+          )}
         </div>
       </div>
     </Link>
