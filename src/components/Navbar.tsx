@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/asset";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { usePlan } from "@/context/PlanContext";
 
