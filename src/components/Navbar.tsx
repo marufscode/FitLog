@@ -39,7 +39,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="FitLog" width={28} height={28} priority />
           <span className="font-display text-lg font-semibold tracking-wide text-white">
-            FITLOG
+            Maruf
           </span>
         </Link>
 
