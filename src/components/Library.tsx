@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "React";
+import { useEffect, useMemo, useState } from "react";
 import { Search, ChevronDown, AlertTriangle } from "lucide-react";
 import { fetchWorkouts } from "@/lib/api";
 import type { SortKey, SortOption, Workout } from "@/types/workout";
