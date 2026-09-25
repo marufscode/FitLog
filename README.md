@@ -1,57 +1,34 @@
-# FitLog
+# 🏋️‍♂️ FitLog — Your Personal Workout & Fitness Tracker
 
-A dark, no-nonsense gym companion built with Next.js. Browse a library of
-lifts, lock a few into today's plan, track them as you finish, and save
-others for later — all persisted locally in your browser.
+**FitLog** হলো একটি আধুনিক, ফাস্ট এবং ইউজার-ফ্রেন্ডলি ওয়ার্কআউট ট্র্যাকিং ওয়েব অ্যাপ্লিকেশন। এখানে ব্যবহারকারীরা সহজে বিভিন্ন ওয়ার্কআউট এক্সপ্লোর করতে পারেন, মাসল গ্রুপ ও ক্যাটাগরি অনুযায়ী ফিল্টার করতে পারেন এবং তাদের নিজস্ব এক্সারসাইজ প্ল্যান তৈরি করে সেভ করে রাখতে পারেন।
 
-## Description
+---
 
-FitLog pulls its workout catalog from a public API
-(`https://api.abcz.workers.dev/api/fitlog`) and lets you build a daily
-training plan capped at five lifts. Mark lifts done as you complete them,
-save others for another day, and watch a live summary of exercises,
-minutes, and calories update as you go.
+## 🛠️ Tech Stack
 
-## Tech Stack
+* **Framework:** [Next.js](https://nextjs.org/) (React 19 / App Router)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Icons:** [Lucide React](https://lucide.dev/)
+* **State Management:** React Context API & `localStorage` Persistence
 
-- **Framework:** Next.js 15 (App Router, TypeScript, `src/` layout)
-- **Styling:** Tailwind CSS, `lucide-react` icons
-- **Notifications:** `sonner` toasts
-- **State & Persistence:** React Context API + `localStorage`
-- **Fonts:** Inter (body) and Oswald (display/headings)
+---
 
-## Key Features
+## ✨ Key Features
 
-1. **Workout Library** — a searchable, sortable grid (by duration, calories,
-   or rating) of every lift in the catalog, with a loading skeleton while
-   the API responds.
-2. **Workout Details** — full specs (equipment, difficulty, sets, reps,
-   duration, calories, rating) and step-by-step instructions for each lift.
-3. **Today's Plan, capped at five** — add lifts to a daily plan; the "Add"
-   action disables once the cap is reached so the day stays realistic.
-4. **Saved for later** — a separate list for lifts you want to come back to,
-   independent of today's plan.
-5. **My Plan dashboard** — live totals for exercises, minutes, and calories,
-   plus per-item "Mark as Done" and "Remove" actions with toast feedback.
+1. **🏋️‍♂️ Interactive Workout Library:** 
+   বিভিন্ন মাসল গ্রুপ (Chest, Back, Legs, Core, Arms) ও এক্সারসাইজের বিস্তারিত তথ্য (Duration, Calories, Rating, Equipment) দেখতে পাওয়ার সমৃদ্ধ লাইব্রেরি।
 
-## Getting Started
+2. **🔍 Smart Search & Dynamic Filtering:**
+   ট্যাগ, এক্সারসাইজের নাম বা ক্যাটাগরি দিয়ে নিমেষেই ওয়ার্কআউট খুঁজে বের করার সুবিধা।
 
-```bash
-npm install
-npm run dev
-```
+3. **📊 Personal Exercise Planner (`My Plan`):**
+   পছন্দের এক্সারসাইজগুলোকে নিজের দৈনিক ওয়ার্কআউট প্ল্যানে যুক্ত করার এবং সেগুলো সহজে ম্যানেজ করার সুবিধা।
 
-Open [http://localhost:3000](http://localhost:3000).
+4. **💾 Local Storage Persistence:**
+   ব্যবহারকারীর সেভ করা প্ল্যান এবং ওয়ার্কআউট ডেটা ব্রাউজারে সুরক্ষিত থাকে, ফলে পেজ রিফ্রেশ করলেও ডেটা মুছে যায় না।
 
-## Project Structure
+5. **⚡ Responsive & Cyberpunk/Dark Aesthetic UI:**
+   টেইলউইন্ড সিএসএস দিয়ে তৈরি ডার্ক-থিম এবং রেসপন্সিভ ডিজাইন, যা মোবাইল ও ডেস্কটপ উভয় ডিভাইসে দুর্দান্ত অভিজ্ঞতা প্রদান করে।
 
-```
-src/
-├── app/            # Routes (home, my-plan, workout/[id], not-found)
-├── components/     # Navbar, Hero, Library, WorkoutCard, StatCard, Footer
-├── context/         # PlanContext — plan/saved state + localStorage
-├── lib/             # api.ts — fetch helpers for the FitLog API
-└── types/           # Shared TypeScript interfaces
-```
-
-All imports use the `@/` alias, mapped to `./src/*`.
+---
