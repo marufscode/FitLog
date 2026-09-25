@@ -9,8 +9,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden border-b border-border-soft bg-base">
-      <div className="mx-auto grid max-w-content items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24 lg:px-8">
+    
+    <section className="relative mx-auto my-8 max-w-content overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/60 p-6 backdrop-blur-sm sm:p-10">
+      <div className="grid items-center gap-10 md:grid-cols-2">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Workout Library
